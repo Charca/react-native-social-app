@@ -10,6 +10,8 @@ var {
   ListView
 } = React;
 
+var routes = require('../routes');
+
 var friends = [
   { name: 'Brad Frost', nick: 'brad_frost', avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg' },
   { name: 'Adham Dannaway', nick: 'adhamdannaway', avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg' },
@@ -58,18 +60,19 @@ class FriendsList extends React.Component {
       dataSource: ds.cloneWithRows(friends)
     }
   }
+
   render() {
     return (
       <ListView
         style={styles.list}
         dataSource={this.state.dataSource}
-        renderRow={this.renderRow} />
+        renderRow={this.renderRow.bind(this)} />
     );
   }
 
   renderRow(rowData, sectionID, rowID) {
     return (
-      <TouchableHighlight onPress={() => this._pressRow(rowID)}>
+      <TouchableHighlight onPress={() => this.onPressRow(rowData)}>
         <View>
           <View style={styles.row}>
             <Image style={styles.thumb} source={{uri: rowData.avatar}} />
@@ -82,6 +85,13 @@ class FriendsList extends React.Component {
         </View>
       </TouchableHighlight>
     );
+  }
+
+  onPressRow(rowData) {
+    var route = routes.friends.profile;
+    route.title = rowData.name;
+    route.userInfo = rowData;
+    this.props.navigator.push(route);
   }
 };
 
