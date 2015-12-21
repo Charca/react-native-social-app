@@ -9,6 +9,8 @@ var {
   TouchableHighlight
 } = React;
 
+var routes = require('../routes');
+
 var styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,7 +45,7 @@ class HomeScreen extends React.Component {
   }
 
   onPlay() {
-    this.props.navigator.push({name: 'game'});
+    this.props.navigator.push(routes.dashboard.game);
   }
 };
 

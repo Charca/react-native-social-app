@@ -8,6 +8,7 @@ var {
 } = React;
 
 var Dashboard = require('./Dashboard');
+var Friends = require('./Friends');
 
 var styles = StyleSheet.create({
   container: {
@@ -31,7 +32,7 @@ var styles = StyleSheet.create({
   }
 });
 
-class MainScreen extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +49,7 @@ class MainScreen extends React.Component {
           icon={require('../../img/icons/friends.png')}
           selected={(this.state.selectedTab === 'friends')}
           onPress={() => this.setState({selectedTab: 'friends'})}>
-          <Dashboard />
+          <Friends />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Dashboard"
@@ -69,4 +70,4 @@ class MainScreen extends React.Component {
   }
 };
 
-module.exports = MainScreen;
+module.exports = Main;

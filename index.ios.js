@@ -8,7 +8,7 @@ var {
 } = React;
 
 var LoginScreen = require('./app/components/LoginScreen');
-var MainScreen = require('./app/components/MainScreen');
+var Main = require('./app/components/Main');
 
 class SocialApp extends React.Component {
   componentDidMount() {
@@ -27,7 +27,7 @@ class SocialApp extends React.Component {
     if(route.name === 'login') {
       return <LoginScreen navigator={navigator} />
     } else if(route.name === 'main') {
-      return <MainScreen navigator={navigator} />
+      return <Main navigator={navigator} />
     }
   }
 }
