@@ -9,6 +9,7 @@ var {
 
 var Dashboard = require('./Dashboard');
 var Friends = require('./Friends');
+var Ranking = require('./Ranking');
 
 var styles = StyleSheet.create({
   container: {
@@ -63,7 +64,7 @@ class Main extends React.Component {
           icon={require('../../img/icons/ranking.png')}
           selected={(this.state.selectedTab === 'ranking')}
           onPress={() => this.setState({selectedTab: 'ranking'})}>
-          <Dashboard />
+          <Ranking />
         </TabBarIOS.Item>
       </TabBarIOS>
     );

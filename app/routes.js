@@ -6,5 +6,8 @@ module.exports = {
   friends: {
     list: { name: 'list', title: 'Friends' },
     profile: { name: 'profile', title: 'Profile' }
+  },
+  ranking: {
+    list: { name: 'list', title: 'Ranking' }
   }
 };
