@@ -33,6 +33,14 @@ var styles = StyleSheet.create({
     height: 1,
     backgroundColor: '#DDD',
   },
+  position: {
+    fontSize: 22,
+    fontWeight: '600',
+    color: '#2B2836',
+    alignSelf: 'center',
+    marginLeft: 15,
+    marginRight: 15
+  },
   thumb: {
     width: 48,
     height: 48,
@@ -75,6 +83,7 @@ class RankingList extends React.Component {
       <TouchableHighlight onPress={() => this.onPressRow(rowData)}>
         <View>
           <View style={styles.row}>
+            <Text style={styles.position}>{parseInt(rowID, 0) + 1}</Text>
             <Image style={styles.thumb} source={{uri: rowData.avatar}} />
             <View style={styles.text}>
               <Text style={styles.name}>{rowData.name}</Text>
